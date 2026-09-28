@@ -1,0 +1,101 @@
+" ==============================
+" 基础设置
+" ==============================
+
+set nocompatible
+filetype plugin indent on
+syntax enable
+
+" 真彩色
+set termguicolors
+
+" 行号
+set number
+
+" 相对行号
+set relativenumber
+
+" 缩进
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set smartindent
+
+" 搜索
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+" 编码
+set encoding=utf-8
+
+" 鼠标
+set mouse=a
+
+" 持久化撤销
+" set undofile
+" set undodir=~/.vim/undo
+
+" ==============================
+" Colorscheme
+" ==============================
+
+
+" 当前行
+set cursorlineopt=number
+
+" 显示不可见字符
+set list
+set listchars=tab:▸\ ,trail:·,extends:>,precedes:<
+
+" 命令行高度
+set cmdheight=1
+
+" 不自动换行
+set nowrap
+
+" 插件目录
+call plug#begin('~/.config/vim/plugged')
+
+"光标
+" set guicursor=i:ver25
+
+Plug 'sheerun/vim-polyglot'
+
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'vim-airline/vim-airline'
+
+call plug#end()
+
+set background=dark
+colorscheme catppuccin_mocha
+
+" ==============================
+" Coc completion
+" ==============================
+
+inoremap <silent><expr> <CR>
+      \ coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+
+inoremap <silent><expr> <S-Tab>
+      \ coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+
+" ==============================
+" Transparent background
+" ==============================
+
+highlight Normal guibg=NONE ctermbg=NONE
+highlight NormalNC guibg=NONE ctermbg=NONE
+highlight EndOfBuffer guibg=NONE ctermbg=NONE
+highlight SignColumn guibg=NONE ctermbg=NONE
+highlight LineNr guibg=NONE ctermbg=NONE
+highlight CursorLineNr guibg=NONE ctermbg=NONE
